@@ -42,6 +42,12 @@ A well-structured, feature-rich Tic Tac Toe game implemented in Python with clea
    # Then open http://localhost:3000 in your browser
    ```
 
+4. **Run with Docker**:
+   ```bash
+   ./run_docker.sh
+   # Then open http://localhost:8888 in your browser
+   ```
+
 3. **Run tests**:
    ```bash
    python -m pytest tests/
@@ -66,13 +72,30 @@ A well-structured, feature-rich Tic Tac Toe game implemented in Python with clea
 
 ```
 tic_tac_toe/
-├── main.py              # Entry point and CLI argument handling
+├── main.py              # CLI entry point
 ├── game_logic.py        # Core game rules and board management
 ├── ai_player.py         # AI implementation with 3 difficulty levels
 ├── cli_interface.py     # Text-based user interface with colors
-├── requirements.txt     # Project dependencies (none for core)
-├── README.md           # This file
-└── tests/              # Unit tests
+├── web_app.py           # Flask web application
+├── app.py               # Production web entry point
+├── run_web.py           # Web launcher script
+├── run_docker.sh        # Docker launcher script
+├── Dockerfile           # Docker container configuration
+├── docker-compose.yml   # Docker Compose configuration
+├── Procfile             # Heroku deployment configuration
+├── runtime.txt          # Python version specification
+├── requirements.txt     # Project dependencies
+├── setup.py             # Package configuration
+├── DEPLOY.md            # Deployment guide
+├── DOCKER_DEPLOY.md     # Docker deployment guide
+├── DEVELOPER_NOTES.md   # Technical documentation
+├── README.md            # This file
+├── templates/           # Web templates
+│   └── index.html
+├── static/              # Web assets
+│   ├── style.css
+│   └── script.js
+└── tests/               # Unit tests
     ├── __init__.py
     ├── test_game_logic.py
     └── test_ai_player.py
@@ -246,20 +269,46 @@ docker run -it tic-tac-toe
 
 ## 🌐 Sharing Your Game
 
-### GitHub Repository
+### Docker + ngrok (Recommended for Friends)
+```bash
+# Start the containerized game
+./run_docker.sh
+
+# In another terminal, create public tunnel (requires ngrok setup)
+ngrok http 8888
+
+# Share the https URL with friends!
+```
+
+### Setup ngrok (One-time)
+1. **Sign up**: https://dashboard.ngrok.com/signup
+2. **Get token**: https://dashboard.ngrok.com/get-started/your-authtoken
+3. **Install token**: `ngrok config add-authtoken YOUR_TOKEN`
+
+### Alternative Sharing Methods
+
+#### Local Network (Same WiFi)
+```bash
+# Find your local IP
+ifconfig | grep "inet " | grep -v 127.0.0.1
+
+# Share: http://YOUR_IP:8888
+```
+
+#### GitHub Repository
 1. Create repository on GitHub
 2. Push your code
 3. Add installation instructions in README
 4. Tag releases for versions
 
-### Python Package Index (PyPI)
+#### Python Package Index (PyPI)
 ```bash
 # Upload to PyPI (requires account)
 pip install twine
 twine upload dist/*
 ```
 
-### Share Executable
+#### Share Executable
 - Use PyInstaller to create standalone executable
 - Share the single file - no Python installation required
 - Works on same OS type (Windows .exe, macOS app, Linux binary)
