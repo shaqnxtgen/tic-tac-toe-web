@@ -1,0 +1,10 @@
+Flask>=2.0.0
+gunicorn>=20.1.0
+
+# No other external dependencies required for core functionality
+# All modules use only Python standard library
+
+# Development dependencies (optional)
+# pytest>=7.0.0  # Alternative test runner
+# black>=22.0.0  # Code formatter
+# flake8>=4.0.0  # Linter

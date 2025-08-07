@@ -1,0 +1,192 @@
+/* Tic Tac Toe Web Game Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+.setup-panel, .game-area {
+    margin-top: 1rem;
+}
+
+.mode-buttons, .difficulty-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.mode-btn, .diff-btn, .start-btn, .control-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.mode-btn {
+    background: #4CAF50;
+    color: white;
+}
+
+.mode-btn:hover, .mode-btn.selected {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.diff-btn.easy {
+    background: #2196F3;
+    color: white;
+}
+
+.diff-btn.medium {
+    background: #FF9800;
+    color: white;
+}
+
+.diff-btn.hard {
+    background: #f44336;
+    color: white;
+}
+
+.diff-btn:hover, .diff-btn.selected {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+.start-btn {
+    background: #9C27B0;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.start-btn:hover {
+    background: #8E24AA;
+    transform: translateY(-2px);
+}
+
+.game-info {
+    margin-bottom: 1.5rem;
+}
+
+#current-player {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+#game-status {
+    font-size: 1.1rem;
+    color: #666;
+    min-height: 1.5rem;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 300px;
+    margin: 0 auto 2rem;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.cell {
+    aspect-ratio: 1;
+    background: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.cell:hover {
+    background: #f5f5f5;
+    transform: scale(1.05);
+}
+
+.cell.x {
+    color: #e74c3c;
+}
+
+.cell.o {
+    color: #3498db;
+}
+
+.cell:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.game-controls {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.control-btn:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.winner {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.difficulty-panel {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid #eee;
+}
+
+.difficulty-panel h3 {
+    color: #555;
+    margin-bottom: 1rem;
+}
